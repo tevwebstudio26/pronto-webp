@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Convertitore WebP Online Gratis | Compressione Immagini di Massa</title>
+    <meta name="description" content="Convertitore JPG in WebP e PNG in WebP online gratis. Effettua la compressione immagini di massa direttamente nel browser. Sicuro, veloce e 100% locale.">
+    <meta name="keywords" content="convertitore jpg in webp, convertitore png in webp, compressione immagini di massa, webp converter online gratis, ottimizzare immagini shopify, velocizzare sito">
+    <link rel="canonical" href="https://www.prontowebp.it/">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/svg+xml" href="pronto_webp_icon_logo.svg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Convertitore WebP Online Gratis | Compressione Immagini di Massa">
+    <meta property="og:description" content="Ottimizza le immagini del tuo sito istantaneamente. Convertitore JPG e PNG in WebP di massa, 100% locale e privato.">
+    <meta property="og:url" content="https://www.prontowebp.it/">
+    <meta property="og:site_name" content="ProntoWebP">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ProntoWebP",
+      "url": "https://www.prontowebp.it/",
+      "genre": "Image Optimizer",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5, Canvas, FileReader",
+      "description": "WebP converter online gratis per la compressione di immagini di massa da JPG e PNG a WebP senza caricamento su server.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Cos'è ProntoWebP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ProntoWebP è uno strumento professionale per effettuare la compressione di immagini di massa in modo totalmente gratuito e istantaneo direttamente nel browser, garantendo privacy totale al 100% locale."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Cos'è il formato WebP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il WebP è un formato di compressione sviluppato da Google per il web che riduce il peso delle immagini JPG e PNG fino al 90%, mantenendo inalterata la qualità visiva."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Come velocizzare il mio sito web?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ottimizzare le immagini convertendole in WebP è il primo passo per superare il test Google PageSpeed. Per miglioramenti strutturali complessi è consigliabile richiedere un'analisi delle performance."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        /* 📜 SCROLL FLUIDO NATIVO */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --cta-orange: #ff6b00; 
+            --cta-orange-hover: #e05e00;
+            --success-green: #00ca62; 
+            --success-green-hover: #00b356;
+            --trust-blue: #0066ff; 
+            
+            --background: #ffffff; 
+            --card-bg: #f8fafc;    
+            --dropzone-bg: #131a2b; 
+            --text: #0f172a;       
+            --text-muted: #64748b;  
+            --border: #e2e8f0;
+            --navbar-height: 70px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-font-smoothing: antialiased;
+            padding-top: var(--navbar-height); 
+        }
+
+        /* 👑 NAVBAR SUPERIORE FISSA */
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--navbar-height);
+            background: #ffffff; 
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000; 
+            box-sizing: border-box;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%; 
+        }
+
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-decoration: none;
+            height: 100%; 
+        }
+
+        .logo-svg {
+            width: 150px;       
+            height: 100%;       
+            display: flex;
+            align-items: center; 
+            justify-content: flex-start;
+        }
+
+        .logo-svg img {
+            width: 100%;
+            height: auto;
+            max-height: 50px;   
+            object-fit: contain;
+            display: block;
+            margin-left: -5px;  
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+        }
+
+        .nav-link.highlight {
+            color: var(--cta-orange);
+            font-weight: 600;
+        }
+        .nav-link.highlight:hover {
+            color: var(--cta-orange-hover);
+        }
+
+        .security-badge {
+            background: rgba(0, 202, 98, 0.1);
+            color: #047857;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 202, 98, 0.2);
+            margin-left: 10px;
+        }
+
+        .main-section {
+            max-width: 720px;
+            width: 100%;
+            padding: 50px 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin: 0 0 16px 0;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            color: var(--text);
+        }
+
+        .slogan {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 45px;
+            font-weight: 400;
+        }
+
+        .drop-zone {
+            background: var(--dropzone-bg);
+            border: 2px dashed #222c3f;
+            padding: 60px 30px;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .drop-zone:hover, .drop-zone.drag-over {
+            border-color: var(--cta-orange);
+            background: #172036;
+            transform: translateY(-2px);
+        }
+
+        .drop-zone p {
+            margin: 20px 0 6px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff; 
+        }
+
+        .drop-zone span { font-size: 0.9rem; color: #8e8e93; }
+        #fileInput { display: none; }
+
+        .results-list { margin-top: 35px; text-align: left; }
+
+        .result-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .file-info { flex-grow: 1; margin-right: 20px; overflow: hidden; }
+        .file-name { font-size: 0.95rem; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .file-meta { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+        .savings-badge {
+            background: rgba(0, 202, 98, 0.12);
+            color: #047857;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            border: 1px solid rgba(0, 202, 98, 0.1);
+        }
+
+        .download-btn {
+            padding: 12px 22px;
+            background-color: var(--success-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 202, 98, 0.2);
+        }
+        .download-btn:hover { background-color: var(--success-green-hover); transform: scale(1.03); }
+
+        /* Sezione Educativa & Griglia */
+        .educational-section {
+            width: 100%;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 80px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+        }
+
+        .edu-container { max-width: 1000px; width: 100%; }
+        
+        /* 📍 CORREZIONE ANCORAGGIO NAVBAR: Evita che finisca sotto l'header fisso */
+        .edu-title { 
+            text-align: center; 
+            font-family: 'Poppins', sans-serif; 
+            font-size: 2rem; 
+            font-weight: 800; 
+            margin-bottom: 50px; 
+            color: var(--text);
+            scroll-margin-top: calc(var(--navbar-height) + 40px);
+        }
+        
+        .edu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .edu-card { 
+            background: var(--background); 
+            border: 1px solid var(--border); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-margin-top: calc(var(--navbar-height) + 40px); /* Margine interno di sicurezza per le singole card */
+        }
+        
+        .edu-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+            border-color: rgba(255, 107, 0, 0.2);
+        }
+
+        /* ✨ EFFETTO GLOW TEMPORANEO INNESCATO DA JS */
+        .edu-card.active-glow {
+            border-color: var(--cta-orange) !important;
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.35) !important;
+            animation: pulseGlow 2s ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03) translateY(-5px); }
+            100% { transform: scale(1); }
+        }
+
+        .edu-card h3 { margin: 0 0 12px 0; font-size: 1.25rem; color: var(--text); font-weight: 700; }
+        .edu-card p { margin: 0 0 20px 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+        .read-more-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            align-self: flex-start;
+        }
+        .read-more-btn:hover {
+            background: var(--text);
+            color: #fff;
+            border-color: var(--text);
+        }
+
+        /* 🗓️ STILE POP-UP MODALI */
+        .seo-modal {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 99999; 
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .seo-modal-content {
+            background: #ffffff;
+            max-width: 650px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            box-sizing: border-box;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .seo-modal-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin: 0 0 18px 0;
+            color: var(--text);
+            padding-right: 20px;
+        }
+
+        .seo-modal-content p {
+            color: #334155;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+        .seo-modal-content p:last-child { margin-bottom: 0; }
+
+        .close-modal {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-modal:hover { color: var(--cta-orange); }
+
+        .funnel-section { width: 100%; max-width: 900px; padding: 80px 20px; box-sizing: border-box; text-align: center; }
+        .funnel-box { background: linear-gradient(145deg, rgba(0, 102, 255, 0.05) 0%, rgba(248, 250, 252, 1) 100%); border: 1px solid rgba(0, 102, 255, 0.15); padding: 50px 40px; border-radius: 28px; box-shadow: 0 10px 30px rgba(0,102,255,0.03); }
+        .funnel-box h2 { font-family: 'Poppins', sans-serif; margin: 0 0 12px 0; font-size: 1.8rem; font-weight: 800; color: var(--text); }
+        .funnel-box p { color: var(--text-muted); max-width: 640px; margin: 0 auto 35px auto; font-size: 1rem; line-height: 1.6; }
+        .cta-btn { display: inline-block; padding: 16px 32px; background-color: var(--trust-blue); color: white; text-decoration: none; border-radius: 14px; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 20px rgba(0, 102, 255, 0.2); transition: all 0.2s; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0, 102, 255, 0.3); }
+
+        /* 🗺️ FOOTER SEO AGGRESSIVO */
+        .app-footer {
+            width: 100%;
+            background: #0f172a; 
+            color: #ffffff;
+            padding: 60px 20px 30px 20px;
+            box-sizing: border-box;
+            border-top: 1px solid #1e293b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            color: #fff;
+            letter-spacing: -0.3px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--cta-orange);
+            padding-left: 4px; 
+        }
+
+        .footer-links .agency-link {
+            color: #38bdf8; 
+            font-weight: 500;
+        }
+        .footer-links .agency-link:hover {
+            color: #7dd3fc;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            max-width: 1000px;
+            border-top: 1px solid #1e293b;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer-bottom a:hover {
+            color: var(--cta-orange);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="nav-container">
+            <a href="#" class="brand-wrapper">
+                <div class="logo-svg">
+                    <img src="pronto_webp_logo.svg" alt="ProntoWebP Logo">
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a onclick="scrollToSection('card-pw')" class="nav-link">Cos'è PW</a></li>
+                <li><a onclick="scrollToSection('card-webp')" class="nav-link">Cos'è un WEBP</a></li>
+                <li><a onclick="scrollToSection('card-seo')" class="nav-link highlight">Come Velocizzare il mio Sito</a></li>
+                <li><div class="security-badge">100% Locale</div></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-section">
+        <h1>Convertitore WebP Online Gratis e Ottimizzazione di Massa</h1>
+        <div class="slogan">Il convertitore di immagini istantaneo in locale. Alleggerisci il tuo sito in un secondo, 100% gratis e senza registrazione.</div>
+        
+        <div id="dropZone" class="drop-zone">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p>Trascina qui le tue immagini per la compressione di massa</p>
+            <span>Supporta file JPG e PNG multipli in simultanea</span>
+            <input type="file" id="fileInput" accept="image/jpeg, image/png" multiple>
+        </div>
+        
+        <div id="resultsList" class="results-list"></div>
+    </main>
+
+    <section class="educational-section" id="edu-section">
+        <div class="edu-container">
+            <h2 class="edu-title">Compressione Immagini, Core Web Vitals & WebP Converter</h2>
+            
+            <div class="edu-grid">
+                <div class="edu-card" id="card-pw">
+                    <h3>🛠️ Cos'è ProntoWebP?</h3>
+                    <p>ProntoWebP è uno strumento professionale sviluppato per consentire la compressione di immagini di massa in modo gratuito e istantaneo...</p>
+                    <button class="read-more-btn" onclick="openModal('modal-pw')">Scopri di più</button>
+                </div>
+
+                <div class="edu-card" id="card-webp">
+                    <h3>⚡ Cos'è il formato WebP?</h3>
+                    <p>Il WebP è un formato di compressione d'avanguardia sviluppato da Google specificatamente per il web, ideale per Shopify e Blog...</p>
+                    <button class="read-more-btn" onclick="openModal('modal-webp')">Scopri di più</button>
+                </div>
+
+                <div class="edu-card" id="card-seo">
+                    <h3>📈 Velocizzare il Sito</h3>
+                    <p>Ti chiedi perché il tuo sito è lento? Ottimizzare le immagini è il primo pilastro fondamentale per superare il test Google PageSpeed...</p>
+                    <button class="read-more-btn" onclick="openModal('modal-seo')">Scopri di più</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal-pw" class="seo-modal" onclick="closeModalOutside(event, 'modal-pw')">
+        <div class="seo-modal-content">
+            <span class="close-modal" onclick="closeModal('modal-pw')">&times;</span>
+            <h3>🛠️ Cos'è ProntoWebP e come funziona la compressione di massa?</h3>
+            <p><strong>ProntoWebP</strong> è uno strumento professionale sviluppato per consentire a blogger, influencer e gestori di e-commerce di effettuare la <strong>compressione di immagini di massa</strong> in modo totalmente gratuito e istantaneo.</p>
+            <p>A differenza di altri sistemi online, ProntoWebP è un <em>webp converter online gratis</em> che rispetta al 100% la tua privacy: l'algoritmo gira direttamente all'interno del tuo browser. Questo significa che i tuoi file JPG o PNG non vengono mai caricati su server esterni, garantendo una sicurezza assoluta. Puoi trascinare decine di file contemporaneamente per ottenere un'ottimizzazione immediata pronta per il download.</p>
+        </div>
+    </div>
+
+    <div id="modal-webp" class="seo-modal" onclick="closeModalOutside(event, 'modal-webp')">
+        <div class="seo-modal-content">
+            <span class="close-modal" onclick="closeModal('modal-webp')">&times;</span>
+            <h3>⚡ Cos'è il formato WebP e perché è fondamentale per Shopify e Blog?</h3>
+            <p>Il WebP è un formato di compressione d'avanguardia sviluppato da Google specificatamente per il World Wide Web. Se utilizzi un <strong>convertitore JPG in WebP</strong> o un <strong>convertitore PNG in WebP</strong>, noterai che il peso dei file si riduce fino al 90% rispetto ai formati tradizionali, mantenendo una qualità visiva pressoché identica e preservando le trasparenze (canale alpha).</p>
+            <p>Sia che tu debba <strong>ottimizzare immagini per Shopify</strong>, WooCommerce o per un blog WordPress, l'adozione del WebP è ormai un prerequisito fondamentale. Ti permette infatti di <strong>risolvere l'errore delle immagini in formati di nuova generazione</strong> segnalato dai principali strumenti di diagnostica, alleggerendo il caricamento delle pagine per gli utenti che navigano da smartphone.</p>
+        </div>
+    </div>
+
+    <div id="modal-seo" class="seo-modal" onclick="closeModalOutside(event, 'modal-seo')">
+        <div class="seo-modal-content">
+            <span class="close-modal" onclick="closeModal('modal-seo')">&times;</span>
+            <h3>📈 Come velocizzare il mio sito e superare il test Google PageSpeed?</h3>
+            <p>Ti stai chiedendo nella nostra <em>Guida: Perché il mio sito è lento?</em> La risposta risiede spesso nel mancato rispetto dei parametri imposti da Google, noti come Core Web Vitals. Convertire i file è il primo passo, ma per <strong>come superare il test Google PageSpeed</strong> serve una strategia tecnica complessiva.</p>
+            <p>Se dopo aver alleggerito le foto le tue pagine continuano a essere pigre, il problema potrebbe risiedere nel codice del template, in un numero eccessivo di plugin, o in un'infrastruttura hosting non adeguatamente configurata. La velocità non è solo un factor di esperienza utente, ma un pilastro SEO fondamentale: i siti veloci si posizionano più in alto su Google, generando più conversioni e vendite professionali realizzate da partner competenti.</p>
+        </div>
+    </div>
+
+    <section class="funnel-section">
+        <div class="funnel-box">
+            <h2>La compressione delle immagini è solo il primo passo</h2>
+            <p>Hai alleggerito i tuoi file, ma le tue pagine sono ancora pigre? La vera velocità di un e-commerce o di un blog dipende da un codice ottimizzato, dalla pulizia dei plugin e dall'infrastruttura hosting professionale.</p>
+            <a href="https://www.tevwebstudio.it" target="_blank" class="cta-btn">Richiedi un'Analisi Performance Gratuita</a>
+        </div>
+    </section>
+
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Strumenti di Ottimizzazione</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Convertitore JPG in WebP</a></li>
+                    <li><a href="#">Convertitore PNG in WebP</a></li>
+                    <li><a href="#">Compressione Immagini di Massa</a></li>
+                    <li><a href="#">WebP Converter Online Gratis</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Performance & SEO Blog</h4>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="openAndScrollModal('modal-seo', 'card-seo')">Guida: Perché il mio sito è lento?</a></li>
+                    <li><a href="javascript:void(0)" onclick="openAndScrollModal('modal-webp', 'card-webp')">Ottimizzare immagini per Shopify</a></li>
+                    <li><a href="javascript:void(0)" onclick="openAndScrollModal('modal-seo', 'card-seo')">Come superare il test Google PageSpeed</a></li>
+                    <li><a href="javascript:void(0)" onclick="openAndScrollModal('modal-webp', 'card-webp')">Risolvere l'errore immagini di nuova generazione</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Servizi Professionali</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.tevwebstudio.it" target="_blank" class="agency-link">Sviluppo Siti Web Performanti</a></li>
+                    <li><a href="https://www.tevwebstudio.it" target="_blank" class="agency-link">Consulenza SEO e Posizionamento</a></li>
+                    <li><a href="https://www.tevwebstudio.it" target="_blank" class="agency-link">Realizzazione E-commerce Scattanti</a></li>
+                    <li><a href="https://www.tevwebstudio.it" target="_blank" class="agency-link">Ottimizzazione Core Web Vitals</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ProntoWebP. Tutti i diritti riservati. Elaborazione file 100% lato client.</p>
+            <p>Un progetto ideato e sviluppato da <a href="https://www.tevwebstudio.it" target="_blank">T&V Web Studio</a></p>
+        </div>
+    </footer>
+
+<script>
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const resultsList = document.getElementById('resultsList');
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', (e) => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); });
+fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+function handleFiles(files) {
+    for (let i = 0; i < files.length; i++) {
+        if (files[i].type.match('image/jpeg') || files[i].type.match('image/png')) {
+            processImage(files[i]);
+        }
+    }
+}
+
+function processImage(file) {
+    const originalSize = file.size;
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onload = function(event) {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            canvas.toBlob(function(blob) {
+                const newSize = blob.size;
+                const savingsPercentage = ((originalSize - newSize) / originalSize * 100).toFixed(0);
+                const finalSavings = savingsPercentage > 0 ? "-" + savingsPercentage + "%" : "0%";
+                
+                const blobURL = URL.createObjectURL(blob);
+                const originalName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+                const downloadName = originalName + "_optimized.webp";
+
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                resultItem.innerHTML = `
+                    <div class="file-info">
+                        <div class="file-name" title="${file.name}">${file.name}</div>
+                        <div class="file-meta">Prima: ${(originalSize / 1024).toFixed(1)} KB | Dopo: ${(newSize / 1024).toFixed(1)} KB</div>
+                    </div>
+                    <div class="savings-badge">${finalSavings}</div>
+                    <a class="download-btn" href="${blobURL}" download="${downloadName}">Scarica WebP</a>
+                `;
+                resultsList.insertBefore(resultItem, resultsList.firstChild);
+            }, 'image/webp', 0.8);
+        }
+    }
+}
+
+// 🌐 GESTIONE POP-UP MODALI
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; 
+}
+
+function closeModalOutside(event, modalId) {
+    if (event.target === document.getElementById(modalId)) {
+        closeModal(modalId);
+    }
+}
+
+// 🗺️ GESTIONE SCROLL FLUIDO, ANCORAGGIO PERFETTO E EFFETTO GLOW
+function scrollToSection(cardId) {
+    const targetCard = document.getElementById(cardId);
+    
+    if (targetCard) {
+        // Esegue lo scroll fluido considerando lo scroll-margin-top impostato nel CSS
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Applica l'effetto Glow Arancione temporaneo
+        targetCard.classList.add('active-glow');
+        
+        // Rimuove l'effetto dopo 2 secondi (finito il loop visivo)
+        setTimeout(() => {
+            targetCard.classList.remove('active-glow');
+        }, 2000);
+    }
+}
+
+// Funzione di servizio combinata per i link del Footer
+function openAndScrollModal(modalId, cardId) {
+    scrollToSection(cardId);
+    setTimeout(() => {
+        openModal(modalId);
+    }, 800); // Apre il pop-up appena termina la discesa fluida dello scroll
+}
+</script>
+</body>
+</html>
