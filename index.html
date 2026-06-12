@@ -104,7 +104,7 @@
             padding-top: var(--navbar-height); 
         }
 
-        /* 👑 NAVBAR SUPERIORE FISSA */
+        /* 👑 NAVBAR SUPERIORE FISSA CORRETTA */
         .app-header {
             position: fixed;
             top: 0;
@@ -196,6 +196,40 @@
             margin-left: 10px;
         }
 
+        /* 🍔 HAMBURGER MENU BUTTON CSS (Mobile) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 100001;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* 📱 STILI ANIMAZIONE HAMBURGER ATTIVO */
+        .menu-toggle.is-active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle.is-active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.is-active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* 💥 COLORI ED ACCENTI DEL BRAND NELL'HERO */
         .main-section {
             max-width: 720px;
             width: 100%;
@@ -214,12 +248,22 @@
             color: var(--text);
         }
 
+        /* Classe per accenti di testo arancioni */
+        .brand-accent {
+            color: var(--cta-orange);
+        }
+
         .slogan {
             color: var(--text-muted);
             font-size: 1.15rem;
             line-height: 1.6;
             margin-bottom: 45px;
             font-weight: 400;
+        }
+
+        .slogan .highlight-dark {
+            color: var(--text);
+            font-weight: 600;
         }
 
         .drop-zone {
@@ -310,7 +354,6 @@
 
         .edu-container { max-width: 1000px; width: 100%; }
         
-        /* 📍 CORREZIONE ANCORAGGIO NAVBAR: Evita che finisca sotto l'header fisso */
         .edu-title { 
             text-align: center; 
             font-family: 'Poppins', sans-serif; 
@@ -337,7 +380,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            scroll-margin-top: calc(var(--navbar-height) + 40px); /* Margine interno di sicurezza per le singole card */
+            scroll-margin-top: calc(var(--navbar-height) + 40px); 
         }
         
         .edu-card:hover {
@@ -346,7 +389,6 @@
             border-color: rgba(255, 107, 0, 0.2);
         }
 
-        /* ✨ EFFETTO GLOW TEMPORANEO INNESCATO DA JS */
         .edu-card.active-glow {
             border-color: var(--cta-orange) !important;
             box-shadow: 0 0 25px rgba(255, 107, 0, 0.35) !important;
@@ -380,7 +422,7 @@
             border-color: var(--text);
         }
 
-        /* 🗓️ STILE POP-UP MODALI */
+        /* 🗓️ POP-UP MODALI */
         .seo-modal {
             display: none; 
             position: fixed;
@@ -536,6 +578,59 @@
         .footer-bottom a:hover {
             color: var(--cta-orange);
         }
+
+        /* 📱 RESPONSIVE MEDIA QUERIES FOR MOBILE STYLING */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex; 
+            }
+
+            .nav-menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: var(--navbar-height);
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                border-bottom: 1px solid var(--border);
+                padding: 24px 0;
+                gap: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.03);
+            }
+
+            .nav-menu.is-open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                display: block;
+                text-align: center;
+                padding: 5px 0;
+            }
+
+            .security-badge {
+                margin-left: 0;
+                display: inline-block;
+            }
+
+            h1 {
+                font-size: 2rem;
+                letter-spacing: -0.8px;
+            }
+
+            .slogan {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -548,18 +643,26 @@
                 </div>
             </a>
             
-            <ul class="nav-menu">
-                <li><a onclick="scrollToSection('card-pw')" class="nav-link">Cos'è PW</a></li>
-                <li><a onclick="scrollToSection('card-webp')" class="nav-link">Cos'è un WEBP</a></li>
-                <li><a onclick="scrollToSection('card-seo')" class="nav-link highlight">Come Velocizzare il mio Sito</a></li>
+            <!-- Bottone hamburger visibile solo su schermi piccoli -->
+            <button class="menu-toggle" id="hamburger-btn" aria-label="Apri menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="mobile-nav-list">
+                <li><a onclick="closeMobileMenu(); scrollToSection('card-pw')" class="nav-link">Cos'è PW</a></li>
+                <li><a onclick="closeMobileMenu(); scrollToSection('card-webp')" class="nav-link">Cos'è un WEBP</a></li>
+                <li><a onclick="closeMobileMenu(); scrollToSection('card-seo')" class="nav-link highlight">Come Velocizzare il mio Sito</a></li>
                 <li><div class="security-badge">100% Locale</div></li>
             </ul>
         </div>
     </header>
 
     <main class="main-section">
-        <h1>Convertitore WebP Online Gratis e Ottimizzazione di Massa</h1>
-        <div class="slogan">Il convertitore di immagini istantaneo in locale. Alleggerisci il tuo sito in un secondo, 100% gratis e senza registrazione.</div>
+        <!-- Accenti arancioni aggiunti con il tag .brand-accent -->
+        <h1>Convertitore WebP Online <span class="brand-accent">Gratis</span> e Ottimizzazione di <span class="brand-accent">Massa</span></h1>
+        <div class="slogan">Il convertitore di immagini istantaneo in locale. <span class="highlight-dark">Alleggerisci il tuo sito</span> in un secondo, 100% gratis e senza registrazione.</div>
         
         <div id="dropZone" class="drop-zone">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
@@ -590,7 +693,7 @@
 
                 <div class="edu-card" id="card-seo">
                     <h3>📈 Velocizzare il Sito</h3>
-                    <p>Ti chiedi perché il tuo sito è lento? Ottimizzare le immagini è il primo pilastro fondamentale per superare il test Google PageSpeed...</p>
+                    <p>Ti chiedi perché il tuo sito è lento? Ottimizzare le immagini è il primo pilastro fundamental per superare il test Google PageSpeed...</p>
                     <button class="read-more-btn" onclick="openModal('modal-seo')">Scopri di più</button>
                 </div>
             </div>
@@ -610,7 +713,7 @@
         <div class="seo-modal-content">
             <span class="close-modal" onclick="closeModal('modal-webp')">&times;</span>
             <h3>⚡ Cos'è il formato WebP e perché è fondamentale per Shopify e Blog?</h3>
-            <p>Il WebP è un formato di compressione d'avanguardia sviluppato da Google specificatamente per il World Wide Web. Se utilizzi un <strong>convertitore JPG in WebP</strong> o un <strong>convertitore PNG in WebP</strong>, noterai che il peso dei file si riduce fino al 90% rispetto ai formati tradizionali, mantenendo una qualità visiva pressoché identica e preservando le trasparenze (canale alpha).</p>
+            <p>Il WebP è un formato di compressione d'avanguardia sviluppato da Google specificatamente for il World Wide Web. Se utilizzi un <strong>convertitore JPG in WebP</strong> o un <strong>convertitore PNG in WebP</strong>, noterai che il peso dei file si riduce fino al 90% rispetto ai formati tradizionali, mantenendo una qualità visiva pressoché identica e preservando le trasparenze (canale alpha).</p>
             <p>Sia che tu debba <strong>ottimizzare immagini per Shopify</strong>, WooCommerce o per un blog WordPress, l'adozione del WebP è ormai un prerequisito fondamentale. Ti permette infatti di <strong>risolvere l'errore delle immagini in formati di nuova generazione</strong> segnalato dai principali strumenti di diagnostica, alleggerendo il caricamento delle pagine per gli utenti che navigano da smartphone.</p>
         </div>
     </div>
@@ -728,6 +831,20 @@ function processImage(file) {
     }
 }
 
+// 🌐 LOGICA DI APERTURA / CHIUSURA MENU HAMBURGER (MOBILE)
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileNavList = document.getElementById('mobile-nav-list');
+
+hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('is-active');
+    mobileNavList.classList.toggle('is-open');
+});
+
+function closeMobileMenu() {
+    hamburgerBtn.classList.remove('is-active');
+    mobileNavList.classList.remove('is-open');
+}
+
 // 🌐 GESTIONE POP-UP MODALI
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -752,25 +869,20 @@ function scrollToSection(cardId) {
     const targetCard = document.getElementById(cardId);
     
     if (targetCard) {
-        // Esegue lo scroll fluido considerando lo scroll-margin-top impostato nel CSS
         targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        
-        // Applica l'effetto Glow Arancione temporaneo
         targetCard.classList.add('active-glow');
         
-        // Rimuove l'effetto dopo 2 secondi (finito il loop visivo)
         setTimeout(() => {
             targetCard.classList.remove('active-glow');
         }, 2000);
     }
 }
 
-// Funzione di servizio combinata per i link del Footer
 function openAndScrollModal(modalId, cardId) {
     scrollToSection(cardId);
     setTimeout(() => {
         openModal(modalId);
-    }, 800); // Apre il pop-up appena termina la discesa fluida dello scroll
+    }, 800); 
 }
 </script>
 </body>
